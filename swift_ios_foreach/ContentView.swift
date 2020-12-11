@@ -7,10 +7,21 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    let students = ["Harry","Herminone","Ron"]
+    @State private var selectedStudent = 0
+   
     var body: some View {
-        Text("Hello, World!")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        VStack {
+            
+            Picker("Select your Student",selection: $selectedStudent){
+                ForEach(0..<students.count) {
+                    Text(self.students[$0])
+                }
+            }
+            
+        }
     }
 }
 
